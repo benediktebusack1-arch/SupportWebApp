@@ -1,0 +1,147 @@
+.home-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+}
+
+/* Hero section */
+.hero {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-left: 4px solid #1f4fbf;
+    border-radius: 12px;
+    padding: 3.5rem;
+    margin-bottom: 2rem;
+}
+
+.hero-content {
+    max-width: 750px;
+}
+
+.welcome-text {
+    color: #1f4fbf;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+.hero h1 {
+    font-size: 2.7rem;
+    font-weight: 700;
+    color: #111827;
+    margin: 0.7rem 0 1rem;
+}
+
+.hero p {
+    color: #6b7280;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+}
+
+/* Buttons */
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.primary-button,
+.secondary-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.3rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.2s ease;
+}
+
+.primary-button {
+    background-color: #1f4fbf;
+    color: white;
+}
+
+.primary-button:hover {
+    background-color: #173d91;
+    color: white;
+    transform: translateY(-1px);
+}
+
+.secondary-button {
+    background-color: white;
+    color: #1f4fbf;
+    border: 1px solid #1f4fbf;
+}
+
+.secondary-button:hover {
+    background-color: #f2f6ff;
+    color: #1f4fbf;
+}
+
+/* Information cards */
+.info-section {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+}
+
+.info-card {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 1.75rem;
+    transition: 0.2s ease;
+}
+
+.info-card:hover {
+    border-color: #c7d5f7;
+    transform: translateY(-2px);
+}
+
+.info-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #e8efff;
+    color: #1f4fbf;
+    border-radius: 8px;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.info-card h3 {
+    color: #111827;
+    font-size: 1.1rem;
+    margin-bottom: 0.6rem;
+}
+
+.info-card p {
+    color: #6b7280;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Mobile */
+@media (max-width: 800px) {
+    .home-container {
+        padding: 2rem 1rem;
+    }
+
+    .hero {
+        padding: 2rem;
+    }
+
+    .hero h1 {
+        font-size: 2.1rem;
+    }
+
+    .info-section {
+        grid-template-columns: 1fr;
+    }
+}

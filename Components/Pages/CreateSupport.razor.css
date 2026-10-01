@@ -1,0 +1,112 @@
+/* Side */
+h1 {
+    color: #111827;
+    font-size: 2.3rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+}
+
+/* Formular */
+form {
+    max-width: 750px;
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 2rem;
+}
+
+/* Felter */
+.mb-3 {
+    margin-bottom: 1.4rem !important;
+}
+
+label {
+    display: block;
+    color: #374151;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+/* Inputfelter */
+.form-control {
+    width: 100%;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    padding: 0.75rem 0.9rem;
+    color: #111827;
+    background-color: white;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.form-control:focus {
+    border-color: #1f4fbf;
+    box-shadow: 0 0 0 3px rgba(31, 79, 191, 0.12);
+    outline: none;
+}
+
+/* Beskrivelse */
+textarea.form-control {
+    min-height: 140px;
+    resize: vertical;
+}
+
+/* Opret-knap */
+.btn-primary {
+    background-color: #1f4fbf;
+    border: 1px solid #1f4fbf;
+    color: white;
+    border-radius: 8px;
+    padding: 0.75rem 1.4rem;
+    font-weight: 600;
+    margin-top: 0.5rem;
+    transition: background-color 0.15s ease, transform 0.15s ease;
+}
+
+.btn-primary:hover {
+    background-color: #173d91;
+    border-color: #173d91;
+    color: white;
+    transform: translateY(-1px);
+}
+
+/* Validation */
+.validation-message {
+    display: block;
+    color: #dc2626;
+    font-size: 0.85rem;
+    margin-top: 0.35rem;
+}
+
+/* Succesbesked */
+.alert-success {
+    max-width: 750px;
+    margin-top: 1.25rem;
+    background-color: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    color: #166534;
+    border-radius: 8px;
+    padding: 0.9rem 1rem;
+}
+
+/* Fejlbesked */
+.alert-danger {
+    max-width: 750px;
+    margin-top: 1.25rem;
+    background-color: #fef2f2;
+    border: 1px solid #fecaca;
+    color: #991b1b;
+    border-radius: 8px;
+    padding: 0.9rem 1rem;
+}
+
+/* Mobil */
+@media (max-width: 700px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    form {
+        padding: 1.5rem;
+    }
+}

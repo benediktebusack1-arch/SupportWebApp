@@ -1,0 +1,96 @@
+@page "/create-support"
+@rendermode InteractiveServer
+
+@using SupportWebApp.Models
+@using SupportWebApp.Services
+
+@inject CosmosDbService CosmosDbService
+
+<h1>Opret supporthenvendelse</h1>
+
+<EditForm Model="@supportMessage"
+          OnValidSubmit="@CreateSupportMessage"
+          FormName="CreateSupport">
+
+    <DataAnnotationsValidator />
+
+    <div class="mb-3">
+        <label>Navn</label>
+        <InputText class="form-control"
+                   @bind-Value="supportMessage.Name" />
+        <ValidationMessage For="@(() => supportMessage.Name)" />
+    </div>
+
+    <div class="mb-3">
+        <label>Email</label>
+        <InputText class="form-control"
+                   @bind-Value="supportMessage.Email" />
+        <ValidationMessage For="@(() => supportMessage.Email)" />
+    </div>
+
+    <div class="mb-3">
+        <label>Telefon</label>
+        <InputText class="form-control"
+                   @bind-Value="supportMessage.Phone" />
+        <ValidationMessage For="@(() => supportMessage.Phone)" />
+    </div>
+
+    <div class="mb-3">
+        <label>Beskrivelse</label>
+        <InputTextArea class="form-control"
+                       @bind-Value="supportMessage.Description" />
+        <ValidationMessage For="@(() => supportMessage.Description)" />
+    </div>
+
+    <div class="mb-3">
+        <label>Kategori</label>
+        <InputText class="form-control"
+                   @bind-Value="supportMessage.Category" />
+        <ValidationMessage For="@(() => supportMessage.Category)" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">
+        Opret supporthenvendelse
+    </button>
+</EditForm>
+
+@if (!string.IsNullOrEmpty(successMessage))
+{
+    <div class="alert alert-success mt-3">
+        @successMessage
+    </div>
+}
+
+@if (!string.IsNullOrEmpty(errorMessage))
+{
+    <div class="alert alert-danger mt-3">
+        @errorMessage
+    </div>
+}
+
+@code {
+    [SupplyParameterFromForm]
+    private SupportMessage supportMessage { get; set; } = new();
+
+    private string? successMessage;
+    private string? errorMessage;
+
+    private async Task CreateSupportMessage()
+    {
+        successMessage = null;
+        errorMessage = null;
+
+        try
+        {
+            await CosmosDbService.AddSupportMessageAsync(supportMessage);
+
+            successMessage = "Supporthenvendelsen er oprettet.";
+
+            supportMessage = new SupportMessage();
+        }
+        catch (Exception ex)
+        {
+            errorMessage = $"Fejl: {ex.Message}";
+        }
+    }
+}

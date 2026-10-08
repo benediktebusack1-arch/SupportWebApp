@@ -18,14 +18,18 @@ else if (messages.Count == 0)
 }
 else
 {
-    <select class="category-dropdown" @onchange="CategoryChanged">
-        <option value="">Alle kategorier</option>
+    <div class="upper-section">
+        <select class="category-dropdown" @onchange="CategoryChanged">
+            <option value="">Alle kategorier</option>
 
-        @foreach (var category in categories)
-        {
-            <option value="@category">@category</option>
-        }
-    </select>
+            @foreach (var category in categories)
+            {
+                <option value="@category">@category</option>
+            }
+        </select>
+
+        <p class="antal-henvendelser">Antal henvendelser: @messages.Count</p>
+    </div>
         
     <table class="table">
         <thead>

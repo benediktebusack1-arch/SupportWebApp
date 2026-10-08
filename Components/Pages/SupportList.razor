@@ -18,6 +18,15 @@ else if (messages.Count == 0)
 }
 else
 {
+    <select @onchange="CategoryChanged">
+        <option value="">Alle kategorier</option>
+
+        @foreach (var category in categories)
+        {
+            <option value="@category">@category</option>
+        }
+    </select>
+        
     <table class="table">
         <thead>
             <tr>
@@ -48,9 +57,35 @@ else
 
 @code {
     private List<SupportMessage>? messages;
+    private List<string> categories = new();
+    private List<SupportMessage> supportMessages = new();
+
 
     protected override async Task OnInitializedAsync()
     {
+        // Hent alle henvendelser
         messages = await CosmosDbService.GetSupportMessagesAsync();
+
+        // Find de forskellige kategorier
+        categories = supportMessages
+            .Select(x => x.Category)
+            .Distinct()
+            .ToList();
     }
+
+    private async Task CategoryChanged(ChangeEventArgs e)
+    {
+        var category = e.Value?.ToString();
+
+        if (string.IsNullOrEmpty(category))
+        {
+            supportMessages = await CosmosDbService.GetSupportMessagesAsync();
+        }
+        else
+        {
+            supportMessages =
+                await CosmosDbService.GetSupportMsgByCategoryAsync(category);
+        }
+    }
+
 }

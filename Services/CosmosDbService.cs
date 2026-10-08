@@ -62,4 +62,19 @@ public class CosmosDbService
         }
         return results;
     }
+
+    public async Task<List<string>> GetCategoriesAsync()
+    {
+        var query = _container.GetItemQueryIterator<string>(
+            "SELECT DISTINCT VALUE c.category FROM c");
+
+        var results = new List<string>();
+
+        while (query.HasMoreResults)
+        {
+            results.AddRange(await query.ReadNextAsync());
+        }
+
+        return results;
+    }
 }

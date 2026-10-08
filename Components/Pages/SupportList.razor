@@ -67,10 +67,9 @@ else
         messages = await CosmosDbService.GetSupportMessagesAsync();
 
         // Find de forskellige kategorier
-        categories = supportMessages
-            .Select(x => x.Category)
-            .Distinct()
-            .ToList();
+        categories = await CosmosDbService.GetCategoriesAsync();
+
+        supportMessages = await CosmosDbService.GetSupportMessagesAsync();
     }
 
     private async Task CategoryChanged(ChangeEventArgs e)

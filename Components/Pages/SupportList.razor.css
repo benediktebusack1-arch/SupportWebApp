@@ -94,3 +94,29 @@ p:first-of-type {
         font-size: 2rem;
     }
 }
+
+/* dropdown */
+.category-dropdown {
+    height: 42px;
+    padding: 0 40px 0 14px;
+    border: 1px solid #d5dbe8;
+    border-radius: 8px;
+    background-color: #fff;
+    color: #1f2937;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    outline: none;
+    min-width: 190px;
+    margin-bottom: 14px;
+    transition: all 0.2s ease;
+}
+
+.category-dropdown:hover {
+    border-color: #2455c3;
+}
+
+.category-dropdown:focus {
+    border-color: #2455c3;
+    box-shadow: 0 0 0 3px rgba(36, 85, 195, 0.12);
+}

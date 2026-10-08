@@ -18,7 +18,7 @@ else if (messages.Count == 0)
 }
 else
 {
-    <select @onchange="CategoryChanged">
+    <select class="category-dropdown" @onchange="CategoryChanged">
         <option value="">Alle kategorier</option>
 
         @foreach (var category in categories)
@@ -78,12 +78,12 @@ else
 
         if (string.IsNullOrEmpty(category))
         {
-            supportMessages = await CosmosDbService.GetSupportMessagesAsync();
+            messages = await CosmosDbService.GetSupportMessagesAsync();
         }
         else
         {
-            supportMessages =
-                await CosmosDbService.GetSupportMsgByCategoryAsync(category);
+            messages = await CosmosDbService
+                .GetSupportMsgByCategoryAsync(category);
         }
     }
 
